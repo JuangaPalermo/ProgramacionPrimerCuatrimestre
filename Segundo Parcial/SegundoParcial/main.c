@@ -119,6 +119,7 @@ int main()
             }
 			break;
 		case 9:
+		    printf("\n\nGracias por utilizar el programa!\n\n\n");
 			break;
 		}
 
