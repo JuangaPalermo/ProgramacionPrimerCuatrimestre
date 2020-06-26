@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1593208211 source:/home/jpalermo/Escritorio/workspace-primercuatrimestre/Segundo Parcial/SegundoParcial/main.c
+	"LinkedList.h"
+	<stdio.h>
+	<stdlib.h>
+	"Controller.h"
+	"Aerolinea.h"
+	"UserInteractions.h"
+
+1593208782 source:/home/jpalermo/Escritorio/workspace-primercuatrimestre/Segundo Parcial/SegundoParcial/Aerolinea.c
+	<stdlib.h>
+	"Aerolinea.h"
+	<string.h>
+
+1593208862 /home/jpalermo/Escritorio/workspace-primercuatrimestre/Segundo Parcial/SegundoParcial/Aerolinea.h
+
+1593209269 source:/home/jpalermo/Escritorio/workspace-primercuatrimestre/Segundo Parcial/SegundoParcial/Controller.c
+	"LinkedList.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Aerolinea.h"
+	"parser.h"
+	"UserInteractions.h"
+
+1593137472 /home/jpalermo/Escritorio/workspace-primercuatrimestre/Segundo Parcial/SegundoParcial/LinkedList.h
+
+1593107163 /home/jpalermo/Escritorio/workspace-primercuatrimestre/Segundo Parcial/SegundoParcial/parser.h
+
+1593197386 /home/jpalermo/Escritorio/workspace-primercuatrimestre/Segundo Parcial/SegundoParcial/UserInteractions.h
+	<stdio.h>
+	<stdio_ext.h>
+	<string.h>
+	<ctype.h>
+	<stdlib.h>
+
+1593195199 source:/home/jpalermo/Escritorio/workspace-primercuatrimestre/Segundo Parcial/SegundoParcial/LinkedList.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1593208863 /home/jpalermo/Escritorio/workspace-primercuatrimestre/Segundo Parcial/SegundoParcial/Controller.h
+
+1593107400 source:/home/jpalermo/Escritorio/workspace-primercuatrimestre/Segundo Parcial/SegundoParcial/parser.c
+	"LinkedList.h"
+	<stdio.h>
+	<stdlib.h>
+	"Aerolinea.h"
+
+1593197158 source:/home/jpalermo/Escritorio/workspace-primercuatrimestre/Segundo Parcial/SegundoParcial/UserInteractions.c
+	"UserInteractions.h"
+
