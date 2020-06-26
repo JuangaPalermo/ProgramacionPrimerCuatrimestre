@@ -75,26 +75,32 @@ int controller_listVuelos(LinkedList* pArrayListVuelos, LinkedList* pArrayListPi
         for(i = 0; i<lenVuelos; i++)
         {
             auxVuelo = ll_get(pArrayListVuelos, i);
-            vuelo_getIdVuelo(auxVuelo, &idVuelo);
-            vuelo_getIdAvion(auxVuelo, &idAvion);
-            vuelo_getIdPiloto(auxVuelo, &idPiloto);
-            vuelo_getFecha(auxVuelo, fecha);
-            vuelo_getDestino(auxVuelo, destino);
-            vuelo_getCantPasajeros(auxVuelo, &cantPasajeros);
-            vuelo_getHoraDespegue(auxVuelo, &horaDespegue);
-            vuelo_getHoraLlegada(auxVuelo, &horaLlegada);
-            for(j = 0; j<lenPilotos; j++)
+
+            if(auxVuelo !=NULL)
             {
-                auxPiloto = ll_get(pArrayListPilotos, j);
-                piloto_getIdPiloto(auxPiloto, &idPiloto2);
-                piloto_getNombrePiloto(auxPiloto, nombre);
-                if(idPiloto == idPiloto2)
+                vuelo_getIdVuelo(auxVuelo, &idVuelo);
+                vuelo_getIdAvion(auxVuelo, &idAvion);
+                vuelo_getIdPiloto(auxVuelo, &idPiloto);
+                vuelo_getFecha(auxVuelo, fecha);
+                vuelo_getDestino(auxVuelo, destino);
+                vuelo_getCantPasajeros(auxVuelo, &cantPasajeros);
+                vuelo_getHoraDespegue(auxVuelo, &horaDespegue);
+                vuelo_getHoraLlegada(auxVuelo, &horaLlegada);
+                for(j = 0; j<lenPilotos; j++)
                 {
-                    break;
+                    auxPiloto = ll_get(pArrayListPilotos, j);
+                    if(auxPiloto != NULL)
+                    {
+                        piloto_getIdPiloto(auxPiloto, &idPiloto2);
+                        piloto_getNombrePiloto(auxPiloto, nombre);
+                        if(idPiloto == idPiloto2)
+                        {
+                            printf("| %5d | %5d | %60s | %15s | %30s | %5d | %5d | %5d |\n", idVuelo, idAvion, nombre, fecha, destino, cantPasajeros, horaDespegue, horaLlegada);
+                            break;
+                        }
+                    }
                 }
             }
-
-            printf("| %5d | %5d | %60s | %15s | %30s | %5d | %5d | %5d |\n", idVuelo, idAvion, nombre, fecha, destino, cantPasajeros, horaDespegue, horaLlegada);
         }
 
         returnValue = 1;
@@ -161,16 +167,20 @@ int controller_saveAsText(char* path, LinkedList* pArrayListVuelos)
         {
             auxVuelo = ll_get(pArrayListVuelos, i);
 
-            vuelo_getIdVuelo(auxVuelo, &idVuelo);
-            vuelo_getIdAvion(auxVuelo, &idAvion);
-            vuelo_getIdPiloto(auxVuelo, &idPiloto);
-            vuelo_getFecha(auxVuelo, fecha);
-            vuelo_getDestino(auxVuelo, destino);
-            vuelo_getCantPasajeros(auxVuelo, &cantPasajeros);
-            vuelo_getHoraDespegue(auxVuelo, &horaDespegue);
-            vuelo_getHoraLlegada(auxVuelo, &horaLlegada);
+            if(auxVuelo != NULL)
+            {
+                vuelo_getIdVuelo(auxVuelo, &idVuelo);
+                vuelo_getIdAvion(auxVuelo, &idAvion);
+                vuelo_getIdPiloto(auxVuelo, &idPiloto);
+                vuelo_getFecha(auxVuelo, fecha);
+                vuelo_getDestino(auxVuelo, destino);
+                vuelo_getCantPasajeros(auxVuelo, &cantPasajeros);
+                vuelo_getHoraDespegue(auxVuelo, &horaDespegue);
+                vuelo_getHoraLlegada(auxVuelo, &horaLlegada);
 
-            fprintf(pArchivo, "%d,%d,%d,%s,%s,%d,%d,%d\n", idVuelo, idAvion, idPiloto, fecha, destino, cantPasajeros, horaDespegue, horaLlegada);
+                fprintf(pArchivo, "%d,%d,%d,%s,%s,%d,%d,%d\n", idVuelo, idAvion, idPiloto, fecha, destino, cantPasajeros, horaDespegue, horaLlegada);
+            }
+
         }
         fclose(pArchivo);
         returnValue = 1;
@@ -198,11 +208,14 @@ int controller_listPilotos(LinkedList* pArrayListPilotos)
         for(i=0; i<len; i++)
         {
             auxPiloto = ll_get(pArrayListPilotos, i);
-            //ver si agregar verificacion a si es NULL o no
-            piloto_getIdPiloto(auxPiloto, &idPiloto);
-            piloto_getNombrePiloto(auxPiloto, nombre);
+            if(auxPiloto != NULL)
+            {
+                piloto_getIdPiloto(auxPiloto, &idPiloto);
+                piloto_getNombrePiloto(auxPiloto, nombre);
 
-            printf("| %5d | %60s |\n", idPiloto, nombre);
+                printf("| %5d | %60s |\n", idPiloto, nombre);
+            }
+
         }
 
         returnValue = 1;
@@ -232,13 +245,18 @@ int controller_selectPiloto(LinkedList* pArrayListPilotos)
             for(i=0; i<len; i++)
             {
                 auxPiloto = ll_get(pArrayListPilotos, i);
-                piloto_getIdPiloto(auxPiloto, &auxId);
 
-                if(auxId == idSeleccionado)
+                if(auxPiloto != NULL)
                 {
-                    returnValue = idSeleccionado;
-                    break;
+                    piloto_getIdPiloto(auxPiloto, &auxId);
+
+                    if(auxId == idSeleccionado)
+                    {
+                        returnValue = idSeleccionado;
+                        break;
+                    }
                 }
+
             }
 
             if(returnValue == 0)
