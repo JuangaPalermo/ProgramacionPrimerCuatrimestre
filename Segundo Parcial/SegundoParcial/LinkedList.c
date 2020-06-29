@@ -326,8 +326,8 @@ int ll_deleteLinkedList(LinkedList* this)
     if(this != NULL)
     {
     	ll_clear(this); //se agrega el clear
-    	free(this);
-    	this = NULL; //se agrega el NULL //quizas agregar *this = NULL
+    	//free(this); //el free es innecesario, ya que el clear ya lo aplica
+    	this = NULL; //se agrega el NULL
     	returnAux = 0;
     }
 
@@ -727,4 +727,43 @@ LinkedList* ll_filter(LinkedList* this, int(*pFuncion)(void* element))
     return clonedList;
 }
 
+LinkedList* ll_filter_parametro(LinkedList* this, int(*pFuncion)(void* element, char* filtro), char* parametro)
+{
+    int auxMatch;
+    void* pElement;
+    LinkedList* clonedList;
+    int i;
+    int len;
 
+    pElement = NULL;
+    clonedList = NULL;
+
+    if(this != NULL && pFuncion != NULL)
+    {
+        clonedList = ll_newLinkedList();
+
+        if(clonedList != NULL)
+        {
+            len = ll_len(this);
+
+            for(i=0; i<len; i++)
+            {
+
+                pElement = ll_get(this,i);
+
+                if(pElement != NULL)
+                {
+                    auxMatch = pFuncion(pElement, parametro);
+
+                    if(auxMatch == 1)
+                    {
+                        ll_add(clonedList, pElement);
+                    }
+                }
+
+            }
+        }
+    }
+
+    return clonedList;
+}

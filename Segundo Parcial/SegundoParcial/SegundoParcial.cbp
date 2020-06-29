@@ -43,6 +43,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="LinkedList.h" />
+		<Unit filename="Piloto.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Piloto.h" />
 		<Unit filename="UserInteractions.c">
 			<Option compilerVar="CC" />
 		</Unit>

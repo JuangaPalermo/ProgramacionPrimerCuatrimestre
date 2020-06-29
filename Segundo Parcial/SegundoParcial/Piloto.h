@@ -44,4 +44,6 @@ int piloto_setNombrePiloto(ePiloto* this,char* nombre);
  *return: (0) error o (1) OK.*/
 int piloto_getNombrePiloto(ePiloto* this,char* nombre);
 
+int piloto_filtroNombre(void* element, char* criterio);
+
 #endif // PILOTO_H_INCLUDED

@@ -8,4 +8,6 @@
  */
 int parser_VueloFromText(FILE* pFile , LinkedList* pArrayListVuelos);
 
+int parser_PilotoFromText(FILE* pFile, LinkedList* pArrayListPilotos);
+
 #endif // PARSER_H_INCLUDED

@@ -363,6 +363,7 @@ int vuelo_soloAlexLifeson(void* element)
             returnValue = 1;
         }
     }
+    return returnValue;
 }
 
 int vuelo_soloRichardBach(void* element)
@@ -381,6 +382,7 @@ int vuelo_soloRichardBach(void* element)
             returnValue = 1;
         }
     }
+    return returnValue;
 }
 
 int vuelo_soloJohnKerry(void* element)
@@ -399,6 +401,7 @@ int vuelo_soloJohnKerry(void* element)
             returnValue = 1;
         }
     }
+    return returnValue;
 }
 
 int vuelo_soloErwinRommel(void* element)
@@ -417,6 +420,7 @@ int vuelo_soloErwinRommel(void* element)
             returnValue = 1;
         }
     }
+    return returnValue;
 }
 
 int vuelo_soloStephenCoonts(void* element)
@@ -435,4 +439,6 @@ int vuelo_soloStephenCoonts(void* element)
             returnValue = 1;
         }
     }
+    return returnValue;
 }
+

@@ -41,3 +41,36 @@ int parser_VueloFromText(FILE* pFile , LinkedList* pArrayListVuelos)
 
 	return returnValue;
 }
+
+int parser_PilotoFromText(FILE* pFile, LinkedList* pArrayListPilotos)
+{
+    int returnValue = 0;
+
+	char idPiloto[20];
+	char nombrePiloto[128];
+
+	int auxScan;
+	ePiloto* auxPiloto;
+
+	if(pFile != NULL && pArrayListPilotos != NULL)
+	{
+		auxScan = fscanf(pFile, "%[^,],%[^\n]\n",  idPiloto, nombrePiloto);
+
+		do
+		{
+			auxScan = fscanf(pFile, "%[^,],%[^\n]\n",  idPiloto, nombrePiloto);
+
+			if(auxScan == 2)
+			{
+				auxPiloto = piloto_newParametros(nombrePiloto, idPiloto);
+				ll_add(pArrayListPilotos, auxPiloto);
+			}
+
+		}while(!feof(pFile));
+
+		returnValue = 1;
+	}
+
+	return returnValue;
+
+}

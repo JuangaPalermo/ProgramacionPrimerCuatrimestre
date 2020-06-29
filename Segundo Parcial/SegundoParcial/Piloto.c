@@ -88,3 +88,25 @@ int piloto_getNombrePiloto(ePiloto* this,char* nombre)
 
 	return returnValue;
 }
+
+
+int piloto_filtroNombre(void* element, char* criterio)
+{
+    int returnValue = 0;
+    ePiloto* auxPiloto;
+    char auxNombre[128];
+
+    if (element != NULL)
+    {
+        auxPiloto = (ePiloto*) element;
+        piloto_getNombrePiloto(auxPiloto, auxNombre);
+
+        if(strcmp(auxNombre, criterio) == 0)
+        {
+            returnValue = 1;
+        }
+    }
+
+    return returnValue;
+}
+

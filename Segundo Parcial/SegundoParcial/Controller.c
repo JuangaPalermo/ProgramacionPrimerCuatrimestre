@@ -9,7 +9,7 @@
 #include "UserInteractions.h"
 
 
-int controller_loadFromText(char* path , LinkedList* pArrayListVuelos)
+int controller_Palermo_loadFromText(char* path , LinkedList* pArrayListVuelos)
 {
 	int returnValue = 0;
 
@@ -26,6 +26,25 @@ int controller_loadFromText(char* path , LinkedList* pArrayListVuelos)
 
 	return returnValue;
 }
+
+int controller_Palermo_loadPilotosFromText(char* path , LinkedList* pArrayListPilotos)
+{
+	int returnValue = 0;
+
+	FILE* pArchivo;
+
+	pArchivo = fopen(path, "r");
+
+	if(pArrayListPilotos != NULL && pArchivo != NULL)
+	{
+		parser_PilotoFromText(pArchivo, pArrayListPilotos);
+		fclose(pArchivo);
+		returnValue = 1;
+	}
+
+	return returnValue;
+}
+
 
 int hardcodearPilotos (LinkedList* pArrayListPilotos)
 {
@@ -46,7 +65,7 @@ int hardcodearPilotos (LinkedList* pArrayListPilotos)
 	return retorno;
 }
 
-int controller_listVuelos(LinkedList* pArrayListVuelos, LinkedList* pArrayListPilotos)
+int controller_Palermo_listVuelos(LinkedList* pArrayListVuelos, LinkedList* pArrayListPilotos)
 {
     int returnValue = 0;
     int idVuelo;
@@ -111,7 +130,7 @@ int controller_listVuelos(LinkedList* pArrayListVuelos, LinkedList* pArrayListPi
 }
 
 
-int controller_pasajerosTotales (LinkedList* pArrayListVuelos)
+int controller_Palermo_pasajerosTotales (LinkedList* pArrayListVuelos)
 {
     int returnValue = 0;
 
@@ -123,7 +142,7 @@ int controller_pasajerosTotales (LinkedList* pArrayListVuelos)
     return returnValue;
 }
 
-int controller_pasajerosIrlanda(LinkedList* pArrayListVuelos)
+int controller_Palermo_pasajerosIrlanda(LinkedList* pArrayListVuelos)
 {
     int returnValue = 0;
     LinkedList* clonedList;
@@ -142,7 +161,7 @@ int controller_pasajerosIrlanda(LinkedList* pArrayListVuelos)
     return returnValue;
 }
 
-int controller_saveAsText(char* path, LinkedList* pArrayListVuelos)
+int controller_Palermo_saveAsText(char* path, LinkedList* pArrayListVuelos)
 {
     int returnValue = 0;
     FILE* pArchivo;
@@ -190,7 +209,7 @@ int controller_saveAsText(char* path, LinkedList* pArrayListVuelos)
     return returnValue;
 }
 
-int controller_listPilotos(LinkedList* pArrayListPilotos)
+int controller_Palermo_listPilotos(LinkedList* pArrayListPilotos)
 {
     int returnValue = 0;
     int idPiloto;
@@ -225,7 +244,7 @@ int controller_listPilotos(LinkedList* pArrayListPilotos)
     return returnValue;
 }
 
-int controller_selectPiloto(LinkedList* pArrayListPilotos)
+int controller_Palermo_selectPiloto(LinkedList* pArrayListPilotos)
 {
     int returnValue = 0;
     int i;
@@ -272,34 +291,39 @@ int controller_selectPiloto(LinkedList* pArrayListPilotos)
 }
 
 
-int controller_saveAsTextPilotoEspecifico(LinkedList* pArrayListVuelos, LinkedList* pArrayListPilotos)
+int controller_Palermo_saveAsTextPilotoEspecifico(LinkedList* pArrayListVuelos, LinkedList* pArrayListPilotos)
 {
     int returnValue = 0;
     int pilotoSeleccionado;
 
-    controller_listPilotos(pArrayListPilotos); //imprime la lista de pilotos
-    pilotoSeleccionado = controller_selectPiloto(pArrayListPilotos); //Le pide al usuario el ID del piloto
+    controller_Palermo_listPilotos(pArrayListPilotos); //imprime la lista de pilotos
+    pilotoSeleccionado = controller_Palermo_selectPiloto(pArrayListPilotos); //Le pide al usuario el ID del piloto
     //lo de arriba podria haberse hecho con un prinMenu, pero no habria sido dinamico.
 
     switch(pilotoSeleccionado)
     {
     case 1:
-        controller_saveAsText("VuelosLifeson.csv", ll_filter(pArrayListVuelos, vuelo_soloAlexLifeson));
+        controller_Palermo_saveAsText("VuelosLifeson.csv", ll_filter(pArrayListVuelos, vuelo_soloAlexLifeson));
+        returnValue = 1;
         break;
     case 2:
-        controller_saveAsText("VuelosBach.csv", ll_filter(pArrayListVuelos, vuelo_soloRichardBach));
+        controller_Palermo_saveAsText("VuelosBach.csv", ll_filter(pArrayListVuelos, vuelo_soloRichardBach));
+        returnValue = 1;
         break;
     case 3:
-        controller_saveAsText("VuelosKerry.csv", ll_filter(pArrayListVuelos, vuelo_soloJohnKerry));
+        controller_Palermo_saveAsText("VuelosKerry.csv", ll_filter(pArrayListVuelos, vuelo_soloJohnKerry));
+        returnValue = 1;
         break;
     case 4:
-        controller_saveAsText("VuelosRommel.csv", ll_filter(pArrayListVuelos, vuelo_soloErwinRommel));
+        controller_Palermo_saveAsText("VuelosRommel.csv", ll_filter(pArrayListVuelos, vuelo_soloErwinRommel));
+        returnValue = 1;
         break;
     case 5:
-        controller_saveAsText("VuelosCoonts.csv", ll_filter(pArrayListVuelos, vuelo_soloStephenCoonts));
+        controller_Palermo_saveAsText("VuelosCoonts.csv", ll_filter(pArrayListVuelos, vuelo_soloStephenCoonts));
+        returnValue = 1;
         break;
     }
 
-    returnValue = 1;
+    return returnValue;
 }
 
