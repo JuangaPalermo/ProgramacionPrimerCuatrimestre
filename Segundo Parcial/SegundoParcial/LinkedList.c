@@ -325,7 +325,9 @@ int ll_deleteLinkedList(LinkedList* this)
 
     if(this != NULL)
     {
+    	ll_clear(this); //se agrega el clear
     	free(this);
+    	this = NULL; //se agrega el NULL //quizas agregar *this = NULL
     	returnAux = 0;
     }
 
@@ -722,9 +724,7 @@ LinkedList* ll_filter(LinkedList* this, int(*pFuncion)(void* element))
         }
     }
 
-
     return clonedList;
-
 }
 
 

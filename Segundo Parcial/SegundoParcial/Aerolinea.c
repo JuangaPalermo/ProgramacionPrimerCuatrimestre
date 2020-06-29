@@ -12,15 +12,6 @@ eVuelo* vuelo_new()
 }
 
 
-ePiloto* piloto_new()
-{
-	ePiloto* auxPiloto;
-
-	auxPiloto = (ePiloto*)malloc(sizeof(ePiloto));
-
-	return auxPiloto;
-}
-
 eVuelo* vuelo_newParametros(char* idVuelo,char* idAvion,char* idPiloto,char* fecha, char* destino, char* cantPasajeros, char* horaDespegue, char* horaLlegada)
 {
 	eVuelo* auxVuelo;
@@ -42,20 +33,6 @@ eVuelo* vuelo_newParametros(char* idVuelo,char* idAvion,char* idPiloto,char* fec
 	return auxVuelo;
 }
 
-ePiloto* piloto_newParametros(char* nombre, char* idPiloto)
-{
-	ePiloto* auxPiloto;
-
-	auxPiloto = piloto_new();
-
-	if(auxPiloto != NULL)
-	{
-		piloto_setNombrePiloto(auxPiloto, nombre);
-		piloto_setIdPiloto(auxPiloto, atoi(idPiloto));
-	}
-
-	return auxPiloto;
-}
 
 int vuelo_setIdVuelo(eVuelo* this,int idVuelo)
 {
@@ -273,67 +250,6 @@ int vuelo_getHoraLlegada(eVuelo* this,int* horaLlegada)
 	return returnValue;
 }
 
-
-int piloto_setIdPiloto(ePiloto* this,int idPiloto)
-{
-	int returnValue = 0;
-
-	if(this != NULL)
-	{
-		this->idPiloto = idPiloto;
-		returnValue = 1;
-	}
-
-	return returnValue;
-}
-int piloto_getIdPiloto(ePiloto* this,int* idPiloto)
-{
-	int returnValue = 0;
-
-	if(this != NULL)
-	{
-		*idPiloto = this->idPiloto;
-		returnValue = 1;
-	}
-
-	return returnValue;
-}
-
-
-int piloto_setNombrePiloto(ePiloto* this,char* nombre)
-{
-	int returnValue = 0;
-	int i;
-
-	if(this != NULL)
-	{
-		//strlwr(nombre);
-		for(i=0; i<strlen(nombre); i++)
-		{
-			if(i==0 || i-1 == ' ')
-			{
-				toupper(nombre[i]);
-			}
-		}
-
-		strcpy(this->nombre, nombre);
-		returnValue = 1;
-	}
-
-	return returnValue;
-}
-int piloto_getNombrePiloto(ePiloto* this,char* nombre)
-{
-	int returnValue = 0;
-
-	if(this != NULL)
-	{
-		strcpy(nombre, this->nombre);
-		returnValue = 1;
-	}
-
-	return returnValue;
-}
 
 int vuelo_obtainCantPasajeros(void* element)
 {

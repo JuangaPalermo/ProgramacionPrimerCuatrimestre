@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "Aerolinea.h"
+#include "Piloto.h"
 #include "parser.h"
 #include "UserInteractions.h"
 

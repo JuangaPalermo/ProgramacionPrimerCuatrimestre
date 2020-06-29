@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Aerolinea.h"
+#include "Piloto.h"
 
 int parser_VueloFromText(FILE* pFile , LinkedList* pArrayListVuelos)
 {

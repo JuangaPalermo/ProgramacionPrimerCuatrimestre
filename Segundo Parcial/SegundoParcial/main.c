@@ -9,6 +9,7 @@
 
 #include "Controller.h"
 #include "Aerolinea.h"
+#include "Piloto.h"
 #include "UserInteractions.h"
 
 int main()
@@ -18,6 +19,7 @@ int main()
 
 	int opcionSeleccionada;
 	int retornoFuncion;
+	char archivo[50];
 
 	listVuelos = ll_newLinkedList();
 	listPilotos = ll_newLinkedList();
@@ -31,7 +33,8 @@ int main()
 		switch(opcionSeleccionada)
 		{
 		case 1:
-			retornoFuncion = controller_loadFromText("Vuelos.csv", listVuelos);
+		    getString("Inserte el nombre del archivo: ", archivo, 50);
+			retornoFuncion = controller_loadFromText(archivo, listVuelos);
 			if(retornoFuncion == 1)
 			{
 				printf("Archivo cargado con exito.\n");

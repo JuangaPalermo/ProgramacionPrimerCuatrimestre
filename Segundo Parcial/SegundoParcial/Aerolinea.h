@@ -15,11 +15,6 @@ typedef struct
 
 }eVuelo;
 
-typedef struct
-{
-	char nombre[128];
-	int idPiloto; //PK
-}ePiloto;
 
 
 /*Crea en memoria dinamica espacio para una variable de tipo eVuelo
@@ -27,10 +22,6 @@ typedef struct
  */
 eVuelo* vuelo_new();
 
-/*Crea en memoria dinamica espacio para una variable de tipo ePiloto
- *return: la direccion de memoria dinamica
- */
-ePiloto* piloto_new();
 
 /*Constructor por parametros para eVuelo (recibe todos los parametros en formato tipo char*, despues convierte)
  *param idVuelo: ID vuelo
@@ -44,13 +35,6 @@ ePiloto* piloto_new();
  *return: eVuelo*
  */
 eVuelo* vuelo_newParametros(char* idVuelo,char* idAvion,char* idPiloto,char* fecha, char* destino, char* cantPasajeros, char* horaDespegue, char* horaLlegada);
-
-/*Constructor por parametros para ePiloto (recibe todos los parametros en formato tipo char*, despues convierte)
- *param nombre: nombre del piloto
- *param idPiloto: ID asignado al elemento
- *return ePiloto*
- */
-ePiloto* piloto_newParametros(char* nombre, char* idPiloto);
 
 
 /*Setter ID vuelo
@@ -143,30 +127,6 @@ int vuelo_setHoraLlegada(eVuelo* this,int horaLlegada);
 int vuelo_getHoraLlegada(eVuelo* this,int* horaLlegada);
 
 
-
-/*Setter ID piloto
- *param this: puntero del piloto
- *param idPiloto: ID piloto a asignar
- *return: (0) error o (1) OK.*/
-int piloto_setIdPiloto(ePiloto* this,int idPiloto);
-/*Getter ID piloto
- *param this: puntero del piloto
- *param idPiloto: puntero del ID piloto
- *return: (0) error o (1) OK.*/
-int piloto_getIdPiloto(ePiloto* this,int* idPiloto);
-
-/*Setter nombre piloto
- *param this: puntero del piloto
- *param nombre: NombrePiloto a asignar
- *return: (0) error o (1) OK.*/
-int piloto_setNombrePiloto(ePiloto* this,char* nombre);
-/*Getter ID piloto
- *param this: puntero del piloto
- *param nombre: puntero del NombrePiloto
- *return: (0) error o (1) OK.*/
-int piloto_getNombrePiloto(ePiloto* this,char* nombre);
-
-
 /** \brief Recibe una posicion de la lista y retorna el numero de dicha posicion
  * \param element void* elemento del LL
  * \return int asignado a cantPasajeros de ese elemento
@@ -180,20 +140,59 @@ int vuelo_obtainCantPasajeros(void* element);
  */
 int vuelo_destinoIrlanda(void* element);
 
+
+/** \brief Recibe una posicion de la lista y retorna 1 ((horaLlegada - horaDespegue) < 3)
+ * \param element void* elemento del LL
+ * \return int (1) si ((horaLlegada - horaDespegue) < 3) o (0) si destino != Irlanda
+ */
 int vuelo_menosDe3Horas(void* element);
 
+
+/** \brief Recibe una posicion de la lista y retorna 1 si el destino es Portugal
+ * \param element void* elemento del LL
+ * \return int (1) si destino == Portugal o (0) si destino != Portugal
+ */
 int vuelo_destinoPortugal(void* element);
 
+
+/** \brief Recibe una posicion de la lista y retorna 1 si idPiloto != 1
+ * \param element void* elemento del LL
+ * \return int (1) si idPiloto != 1 o (0) si idPiloto != 1
+ */
 int vuelo_sacarAlexLifeson(void* element);
 
+
+/** \brief Recibe una posicion de la lista y retorna 1 si idPiloto == 1
+ * \param element void* elemento del LL
+ * \return int (1) si idPiloto == 1 o (0) si idPiloto == 1
+ */
 int vuelo_soloAlexLifeson(void* element);
 
+
+/** \brief Recibe una posicion de la lista y retorna 1 si idPiloto == 2
+ * \param element void* elemento del LL
+ * \return int (1) si idPiloto == 2 o (0) si idPiloto == 2
+ */
 int vuelo_soloRichardBach(void* element);
 
+
+/** \brief Recibe una posicion de la lista y retorna 1 si idPiloto == 3
+ * \param element void* elemento del LL
+ * \return int (1) si idPiloto == 3 o (0) si idPiloto == 3
+ */
 int vuelo_soloJohnKerry(void* element);
 
+
+/** \brief Recibe una posicion de la lista y retorna 1 si idPiloto == 4
+ * \param element void* elemento del LL
+ * \return int (1) si idPiloto == 4 o (0) si idPiloto == 4
+ */
 int vuelo_soloErwinRommel(void* element);
 
+/** \brief Recibe una posicion de la lista y retorna 1 si idPiloto == 5
+ * \param element void* elemento del LL
+ * \return int (1) si idPiloto == 5 o (0) si idPiloto == 5
+ */
 int vuelo_soloStephenCoonts(void* element);
 /******************************************************************************************/
 

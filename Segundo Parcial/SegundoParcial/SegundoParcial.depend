@@ -51,19 +51,20 @@
 1593197158 source:/home/jpalermo/Escritorio/workspace-primercuatrimestre/Segundo Parcial/SegundoParcial/UserInteractions.c
 	"UserInteractions.h"
 
-1593208782 source:/home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/Aerolinea.c
+1593456021 source:/home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/Aerolinea.c
 	<stdlib.h>
 	"Aerolinea.h"
 	<string.h>
 
-1593208862 /home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/Aerolinea.h
+1593456021 /home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/Aerolinea.h
 
-1593209269 source:/home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/Controller.c
+1593456023 source:/home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/Controller.c
 	"LinkedList.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"Aerolinea.h"
+	"Piloto.h"
 	"parser.h"
 	"UserInteractions.h"
 
@@ -78,7 +79,7 @@
 	<ctype.h>
 	<stdlib.h>
 
-1593195199 source:/home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/LinkedList.c
+1593273611 source:/home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/LinkedList.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -94,12 +95,20 @@
 
 1593208863 /home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/Controller.h
 
-1593107400 source:/home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/parser.c
+1593456018 source:/home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/parser.c
 	"LinkedList.h"
 	<stdio.h>
 	<stdlib.h>
 	"Aerolinea.h"
+	"Piloto.h"
 
 1593197158 source:/home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/UserInteractions.c
 	"UserInteractions.h"
+
+1593456019 /home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/Piloto.h
+
+1593456020 source:/home/jpalermo/Escritorio/Repositorio Programacion 1er cuatri/ProgramacionPrimerCuatrimestre/Segundo Parcial/SegundoParcial/Piloto.c
+	<stdlib.h>
+	"Piloto.h"
+	<string.h>
 
